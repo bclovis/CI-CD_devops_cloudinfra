@@ -1,0 +1,133 @@
+@import 'bulma/css/bulma.min.css';
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Slim.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Slim Italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Neutral.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Neutral Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Median.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('./assets/fonts/PolySans Bulky.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #00d1b2;
+  /* Bulma primary */
+  --dark-bg: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --text-main: #ffffff;
+  --text-secondary: #b5b5b5;
+}
+
+body {
+  font-family: 'PolySans', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.hero {
+  background-color: transparent;
+}
+
+.title {
+  color: var(--text-main) !important;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-secondary) !important;
+  font-weight: 300;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid #333;
+  color: var(--text-main);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-color);
+}
+
+.card-content .title {
+  color: var(--text-main) !important;
+}
+
+.team-name {
+  color: var(--text-main);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.logo-img {
+  max-height: 60px;
+  margin: 0 20px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+.logo-img:last-child {
+  max-height: 45px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.footer {
+  background-color: transparent;
+  padding: 3rem 1.5rem;
+  color: var(--text-secondary);
+}
