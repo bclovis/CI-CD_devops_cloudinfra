@@ -1,0 +1,13 @@
+steps:
+# Construire l'image Docker
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react', '.']
+
+#$PROJECT_ID : Cloud Build la remplacera automatiquement par project5-479818 lors de l'exécution.
+
+# Pousser l'image vers Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react']
+
+images:
+- 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react'
