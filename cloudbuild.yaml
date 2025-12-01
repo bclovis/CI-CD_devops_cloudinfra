@@ -15,7 +15,7 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'GCP-Project5'                 
+  - 'gcp-project5'
   - '--image'
   - 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react'
   - '--region'
