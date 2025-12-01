@@ -9,6 +9,21 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react']
 
+# Dernière étape: Déployer sur Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'my-website'                 
+  - '--image'
+  - 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react'
+  - '--region'
+  - 'europe-west9'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
 images:
 - 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react'
 
