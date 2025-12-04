@@ -14,3 +14,17 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## CI/CD – Deployment Tests
+
+This project runs deployment tests automatically in Cloud Build before building and deploying:
+
+- `npm test` runs Vitest checks (render, structure, responsiveness).
+- `npm run test:build` builds with Vite and validates the `dist/` output (presence of `index.html`, assets, and basic size sanity).
+
+If any test fails, the pipeline stops and no deployment is performed. You can run them locally before pushing:
+
+```bash
+npm test
+npm run test:build
+```

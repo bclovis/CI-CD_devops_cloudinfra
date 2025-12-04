@@ -1,4 +1,13 @@
 steps:
+# Note: Pre-deploy tests are documented in README.md (CI/CD – Deployment Tests)
+# Installer les dépendances
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
+
+# Lancer les tests
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['test']
+
 # Construire l'image Docker
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react', '.']
