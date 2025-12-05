@@ -1,18 +1,21 @@
 steps:
-# Note: Pre-deploy tests are documented in README.md (CI/CD – Deployment Tests)
 # Installer les dépendances
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
 
-# Lancer les tests
+# Lancer les tests Backend pour validation Infra, Sécurité & Green IT 
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['test']
+  args: ['run', 'test:validation']
+
+# Lancer les tests Frontend (Vitest) pour vérifier que l'interface React fonctionne bien
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'test']
 
 # Construire l'image Docker
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'europe-west9-docker.pkg.dev/$PROJECT_ID/repo-docker/mon-app-react', '.']
 
-#$PROJECT_ID : Cloud Build la remplacera automatiquement par project5-479818 lors de l'exécution.
+#$PROJECT_ID : Cloud Build la remplacera automatiquement par project5-479818 lors de l'exécution
 
 # Pousser l'image vers Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
